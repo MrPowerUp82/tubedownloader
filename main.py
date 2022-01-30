@@ -14,7 +14,7 @@ def get_info(url):
 def download(url,option):
     yt=YouTube(url)
     if option == 'mp3':
-        name = yt.title.replace('(','').replace(')','')
+        name = yt.title
         before_exist = [True for x in os.listdir('.') if name in x]
         if before_exist:
             file_name_ = [x for x in os.listdir('.') if name in x][0]
