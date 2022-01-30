@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: rgb(24,24,24);
+}
+
+.container{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.intro{
+    padding: 4px;
+}
+.out{
+    padding: 4px;
+}
+.intro svg{
+    margin-right: 5px;
+    font-size: 35px;
+    color: red;
+}
+.intro span{
+    font-size: 25px;
+    font-weight: bold;
+}
+/*
+.intro div{
+    display: flex;
+    flex-direction: column;
+}
+*/
+.intro input{
+    border: #fff 1px solid;
+    height: 25px;
+    background-color: rgb(24,24,24);
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.intro button{
+    background-color: rgb(24,24,24);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border: #fff 2px solid;
+    border-radius: 12px;
+    height: 30px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.intro button:hover{
+    background-color: #fff;
+    color: rgb(24,24,24);
+}
+h2{
+    font-size: 16px;
+}
+.out{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+.out div{
+    max-width: 200px;
+}
+.out img{
+    width: 200px;
+    height: 115px;
+}
+.options{
+    padding: 5px;
+}
+.options span{
+    font-weight: bold;
+}
+.options button{
+    background-color: rgb(24,24,24);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border: #fff 2px solid;
+    border-radius: 12px;
+    height: 25px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    margin-left: 4px;
+}
+.options button:hover{
+    background-color: #fff;
+    color: rgb(24,24,24);
+}
+.options div{
+    margin-bottom: 5px;
+}

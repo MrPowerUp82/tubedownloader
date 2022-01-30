@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="icon" type="image/png" sizes="48x48" href="icon.png"
+    <link rel="stylesheet" href="fontawesome.css" />
+    <link rel="stylesheet" href="all.css" />
+    <script src="all.js"></script>
+    <script src="fontawesome.js"></script>
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="/eel.js"></script>
+    <title>TubeDownloader</title>
+</head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <i class="fab fa-youtube"></i><span>TubeDownloader</span>
+                <div>
+                    <input placeholder="URL do Vídeo" type="url" id="url"/>
+                    <button onclick="search()">Buscar por Vídeo</button>
+                </div>
+        </div>
+        <div id="out" style="display: none;">
+        <h2 id="title">Como fazer trainer com Python</h2>
+        <div class="out"> 
+            <img id="img" src="https://i.ytimg.com/vi/3VTTSa8w0kA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCpy0BkUMvJPr1KG1UeqaNn36wbdQ" alt="">
+            <div class="options">
+                <div>
+                    <span>720p+</span><button onclick="option2()">Download</button>
+                </div>
+                <div>
+                    <span>360p-</span><button onclick="option1()">Download</button>
+                </div>
+                <div>
+                    <span>MP3</span><button onclick="option3()">Download</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <h2 style="color: green;" id='msg'></h2>
+    </div>
+    <script>
+        window.resizeTo(400,150)
+    </script>
+    <script>
+        let input = document.querySelector('#url')
+        let out = document.querySelector('#out')
+        let msg = document.querySelector('#msg')
+        let img = document.querySelector('#img')
+        let title = document.querySelector('#title')
+        let url
+
+        async function search(){
+            url = input.value
+            if (url === ''){
+                return alert('Coloque o Link do Vídeo')
+            }
+            let info = await eel.get_info(url)()
+            window.resizeTo(400,315)
+            out.style.display = 'block'
+            img.src=info[1]
+            title.innerHTML=info[0]
+        }
+
+        async function option1(){
+            msg.innerHTML = 'Aguarde...'
+            await eel.download(url,'360p')()
+            msg.innerHTML ='Download Concluído'
+        }
+
+        async function option2(){
+            msg.innerHTML = 'Aguarde...'
+            await eel.download(url,'720p')()
+            msg.innerHTML ='Download Concluído'
+        }
+
+        async function option3(){
+            msg.innerHTML = 'Aguarde...'
+            await eel.download(url,'mp3')()
+            msg.innerHTML ='Download Concluído'
+        }
+    </script>
+</body>
+</html>
