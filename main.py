@@ -74,9 +74,15 @@ def download(url,option):
         else:
             os.remove(file_name)
     if option == '360p':
-        yt.streams.filter(res="360p",file_extension='mp4').first().download()
+        video_stream = yt.streams.filter(res="360p",file_extension='mp4')
+        if len(video_stream) < 1:
+            video_stream = yt.streams.filter(res="240p",file_extension='mp4')
+        video_stream.first().download()
     if option == '720p':
-        yt.streams.filter(res="720p",file_extension='mp4').first().download()
+        video_stream = yt.streams.filter(res="1080p",file_extension='mp4')
+        if len(video_stream) < 1:
+            video_stream = yt.streams.filter(res="720p",file_extension='mp4')
+        video_stream.first().download()
 
 
 eel.start('index.html', size=(400,150))
