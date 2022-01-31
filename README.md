@@ -7,7 +7,7 @@ python -m pip install -r requirements.txt
 ### `Crirar ".exe"`
 
 1. python -m pip install pyinstaller
-2. python -m eel main.py web --noconsole --onefile -i web/icon.ico
+2. python -m eel main.py web --noconsole --onefile -i web/icon.ico --runtime-tmpdir %temp%/tubedownloader
 
 ### `Executar`
 
