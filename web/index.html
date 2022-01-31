@@ -53,6 +53,9 @@
         let url
 
         async function search(){
+            window.resizeTo(400,150)
+            out.style.display = 'none'
+            msg.innerHTML = ''
             url = input.value
             if (url === ''){
                 return alert('Coloque o Link do Vídeo')

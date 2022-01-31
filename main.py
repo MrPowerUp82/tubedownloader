@@ -1,44 +1,50 @@
 # set ffmpeg bin.
 import os
-path_exe = os.path.expanduser('~')+'\\AppData\Local\\Temp\\tubedownloader\\'
-path_exe = path_exe+os.listdir(path_exe)[0]+'\\imageio_ffmpeg\\binaries\\'
-path_exe = path_exe + [x for x in os.listdir(path_exe) if 'ffmpeg' in x and '.exe' in x][0]
-os.environ["FFMPEG_BINARY"] = path_exe
-os.environ["IMAGEIO_FFMPEG_EXE"] = path_exe
+import sys
+if 'main.py' in sys.argv[0]:
+    print('dev mode')
+else:
+    print('build mode')
+    path_exe = os.path.expanduser('~')+'\\AppData\Local\\Temp\\tubedownloader\\'
+    path_exe = path_exe+os.listdir(path_exe)[0]+'\\imageio_ffmpeg\\binaries\\'
+    path_exe = path_exe + [x for x in os.listdir(path_exe) if 'ffmpeg' in x and '.exe' in x][0]
+    os.environ["FFMPEG_BINARY"] = path_exe
+    os.environ["IMAGEIO_FFMPEG_EXE"] = path_exe
+    # resolve to build
+    from moviepy.audio.fx.audio_fadein import audio_fadein
+    from moviepy.audio.fx.audio_fadeout import audio_fadeout
+    from moviepy.audio.fx.audio_normalize import audio_normalize
+    from moviepy.audio.fx.audio_loop import audio_loop
+
+    # resolve to build
+    from moviepy.video.fx.accel_decel import accel_decel
+    from moviepy.video.fx.blackwhite import blackwhite
+    from moviepy.video.fx.blink import blink
+    from moviepy.video.fx.crop import crop
+    from moviepy.video.fx.even_size import even_size
+    from moviepy.video.fx.fadein import fadein
+    from moviepy.video.fx.fadeout import fadeout
+    from moviepy.video.fx.mirror_x import mirror_x
+    from moviepy.video.fx.mirror_y import mirror_y
+    from moviepy.video.fx.resize import resize
+    from moviepy.video.fx.invert_colors import invert_colors
+    from moviepy.video.fx.loop import loop
+    from moviepy.video.fx.margin import margin
+    from moviepy.video.fx.mask_and import mask_and
+    from moviepy.video.fx.mask_or import mask_or
+    from moviepy.video.fx.mirror_x import mirror_x
+    from moviepy.video.fx.mirror_y import mirror_y
+    from moviepy.video.fx.rotate import rotate
+    from moviepy.video.fx.speedx import speedx
+
+    # resolve to build
+    import imageio_ffmpeg
 
 # lib's principais
 import eel
 from moviepy.editor import VideoFileClip
 from pytube import YouTube
-# resolve to build
-from moviepy.audio.fx.audio_fadein import audio_fadein
-from moviepy.audio.fx.audio_fadeout import audio_fadeout
-from moviepy.audio.fx.audio_normalize import audio_normalize
-from moviepy.audio.fx.audio_loop import audio_loop
 
-# resolve to build
-from moviepy.video.fx.accel_decel import accel_decel
-from moviepy.video.fx.blackwhite import blackwhite
-from moviepy.video.fx.blink import blink
-from moviepy.video.fx.crop import crop
-from moviepy.video.fx.even_size import even_size
-from moviepy.video.fx.fadein import fadein
-from moviepy.video.fx.fadeout import fadeout
-from moviepy.video.fx.mirror_x import mirror_x
-from moviepy.video.fx.mirror_y import mirror_y
-from moviepy.video.fx.resize import resize
-from moviepy.video.fx.invert_colors import invert_colors
-from moviepy.video.fx.loop import loop
-from moviepy.video.fx.margin import margin
-from moviepy.video.fx.mask_and import mask_and
-from moviepy.video.fx.mask_or import mask_or
-from moviepy.video.fx.mirror_x import mirror_x
-from moviepy.video.fx.mirror_y import mirror_y
-from moviepy.video.fx.rotate import rotate
-from moviepy.video.fx.speedx import speedx
-
-# resolve to build
-import imageio_ffmpeg
 
 eel.init('web')
 
