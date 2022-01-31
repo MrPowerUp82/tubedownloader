@@ -63,25 +63,27 @@ def download(url,option):
         if before_exist:
             file_name_ = [x for x in os.listdir('.') if name in x][0]
             os.rename(file_name_,file_name_.replace('.mp4','.await'))
-        yt.streams.filter(file_extension='mp4').first().download()
+            file_name_ = file_name_.replace('.mp4','.await')
+        yt.streams.filter(file_extension='mp4',progressive=True).first().download()
         file_name = [x for x in os.listdir('.') if name in x and '.mp4' in x][0]
         video = VideoFileClip(file_name)
         video.audio.write_audiofile(file_name.replace('.mp4','.mp3'))
         video.close()
         if before_exist:
+            os.remove(file_name)
             os.rename(file_name_,file_name_.replace('.await','.mp4'))
             return
         else:
             os.remove(file_name)
     if option == '360p':
-        video_stream = yt.streams.filter(res="360p",file_extension='mp4')
+        video_stream = yt.streams.filter(res="360p",file_extension='mp4',progressive=True)
         if len(video_stream) < 1:
-            video_stream = yt.streams.filter(res="240p",file_extension='mp4')
+            video_stream = yt.streams.filter(res="240p",file_extension='mp4',progressive=True)
         video_stream.first().download()
     if option == '720p':
-        video_stream = yt.streams.filter(res="1080p",file_extension='mp4')
+        video_stream = yt.streams.filter(res="1080p",file_extension='mp4',progressive=True)
         if len(video_stream) < 1:
-            video_stream = yt.streams.filter(res="720p",file_extension='mp4')
+            video_stream = yt.streams.filter(res="720p",file_extension='mp4',progressive=True)
         video_stream.first().download()
 
 
