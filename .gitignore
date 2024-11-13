@@ -1,0 +1,8 @@
+*.exe
+venv/
+*.webm
+build/
+dist/
+*.spec
+*.mp3
+playlist/
